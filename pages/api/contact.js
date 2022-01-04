@@ -24,7 +24,7 @@ async function Handler(req, res) {
 
     let client;
 
-    const connectionString = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_CLUSTER}.evezp.mongodb.net/${process.env.DB_DB}?retryWrites=true&w=majority`;
+    const connectionString = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.evezp.mongodb.net/${process.env.DB_DB}?retryWrites=true&w=majority`;
 
     try {
       client = await MongoClient.connect(connectionString);
