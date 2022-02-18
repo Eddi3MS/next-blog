@@ -1,13 +1,13 @@
-import classes from "./post-item.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { PostItemStyled } from "./post-item.styled";
 
 function PostItem(props) {
   const { title, image, excerpt, date, slug } = props.post;
 
   const timeZoneDate = date + "T00:00";
 
-  const formattedDate = new Date(timeZoneDate).toLocaleDateString("en-US", {
+  const formattedDate = new Date(timeZoneDate).toLocaleDateString("pt-BR", {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -17,10 +17,10 @@ function PostItem(props) {
   const linkPath = `/posts/${slug}`;
 
   return (
-    <li className={classes.post}>
+    <PostItemStyled>
       <Link href={linkPath}>
         <a>
-          <div className={classes.image}>
+          <div className="image">
             <Image
               src={imagePath}
               alt={title}
@@ -29,14 +29,14 @@ function PostItem(props) {
               layout="responsive"
             />
           </div>
-          <div className={classes.content}>
+          <div className="content">
             <h3>{title}</h3>
             <time>{formattedDate}</time>
             <p>{excerpt}</p>
           </div>
         </a>
       </Link>
-    </li>
+    </PostItemStyled>
   );
 }
 

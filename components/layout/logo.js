@@ -1,7 +1,7 @@
-import classes from "./logo.module.css";
+import { LogoStyled } from "./logo.styled";
 
 function Logo() {
-  return <div className={classes.logo}>Edson's Next Blog</div>
+  return <LogoStyled>Edson's Blog</LogoStyled>;
 }
 
 export default Logo;

@@ -1,13 +1,14 @@
-import { Fragment } from 'react';
+import { GlobalStyle } from "../../styles/globals";
 
-import MainNavigation from './main-navigation';
+import MainNavigation from "./main-navigation";
 
 function Layout(props) {
   return (
-    <Fragment>
+    <>
+      <GlobalStyle />
       <MainNavigation />
       <main>{props.children}</main>
-    </Fragment>
+    </>
   );
 }
 

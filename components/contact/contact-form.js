@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-import classes from "./contact-form.module.css";
 import Notification from "../ui/notification";
+import { ContactStyle } from "./contact-form.styled";
 
 async function sendContactData(contactDetails) {
   const response = await fetch("/api/contact", {
@@ -15,7 +15,7 @@ async function sendContactData(contactDetails) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || "Something went worng!");
+    throw new Error(data.message || "Something went wrong!");
   }
 }
 
@@ -27,7 +27,7 @@ function ContactForm() {
   const [requestError, setRequestError] = useState();
 
   useEffect(() => {
-    if (requestStatus !== 'peinding') {
+    if (requestStatus !== "pending") {
       const timer = setTimeout(() => {
         setRequestStatus(null);
         setRequestError(null);
@@ -49,9 +49,9 @@ function ContactForm() {
         message: enteredMessage,
       });
       setRequestStatus("success");
-      setEnteredEmail('');
-      setEnteredName('');
-      setEnteredMessage('');
+      setEnteredEmail("");
+      setEnteredName("");
+      setEnteredMessage("");
     } catch (error) {
       setRequestError(error.message);
       setRequestStatus("error");
@@ -85,22 +85,12 @@ function ContactForm() {
   }
 
   return (
-    <section className={classes.contact}>
+    <ContactStyle>
       <h1>How can i help you?</h1>
-      <form className={classes.form} onSubmit={sendMessageHandler}>
-        <div className={classes.controls}>
-          <div className={classes.control}>
-            <label htmlFor="email">Your email</label>
-            <input
-              type="email"
-              id="email"
-              required
-              value={enteredEmail}
-              onChange={(event) => setEnteredEmail(event.target.value)}
-            />
-          </div>
-          <div className={classes.control}>
-            <label htmlFor="name">Your name</label>
+      <form className="form" onSubmit={sendMessageHandler}>
+        <div className="controls">
+          <div className="control">
+            <label htmlFor="name">Nome</label>
             <input
               type="name"
               id="name"
@@ -109,9 +99,19 @@ function ContactForm() {
               onChange={(event) => setEnteredName(event.target.value)}
             />
           </div>
+          <div className="control">
+            <label htmlFor="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              required
+              value={enteredEmail}
+              onChange={(event) => setEnteredEmail(event.target.value)}
+            />
+          </div>
         </div>
-        <div className={classes.control}>
-          <label htmlFor="message">Your Message</label>
+        <div className="control">
+          <label htmlFor="message">Mensagem</label>
           <textarea
             id="message"
             rows="5"
@@ -120,8 +120,8 @@ function ContactForm() {
             onChange={(event) => setEnteredMessage(event.target.value)}
           ></textarea>
         </div>
-        <div className={classes.actions}>
-          <button>Send message</button>
+        <div className="actions">
+          <button>Enviar</button>
         </div>
       </form>
       {notification && (
@@ -131,7 +131,7 @@ function ContactForm() {
           message={notification.message}
         />
       )}
-    </section>
+    </ContactStyle>
   );
 }
 

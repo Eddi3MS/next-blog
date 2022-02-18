@@ -1,20 +1,23 @@
 import Image from "next/image";
-import classes from "./hero.module.css";
+import { HeroStyled } from "./hero.styled";
 
 function Hero() {
   return (
-    <section className={classes.hero}>
-      <div className={classes.image}>
+    <HeroStyled>
+      <div className="image">
         <Image
           src="/images/site/gargantua.png"
           alt="An image showing myself"
-          width={300}
-          height={300}
+          width={350}
+          height={350}
         />
       </div>
-      <h1>Hello, I'm Edson Marcelo</h1>
-      <p>I blog about web development - especially frontend development.</p>
-    </section>
+      <h1>Bem-vindos!!</h1>
+      <p>
+        Eu me chamo <span>Edson Marcelo</span>, sou estudante de desenvolvimento
+        front-end e escrevo, aqui, um pouco sobre o que estou aprendendo.
+      </p>
+    </HeroStyled>
   );
 }
 
