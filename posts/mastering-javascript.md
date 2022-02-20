@@ -1,9 +1,9 @@
 ---
 title: Mastering JavaScript
-excerpt: JavaScript is the most important programming language for web development. You probably don't know it well enough!
+excerpt: Alguns metodos e funções em javascript!
 image: mastering-js-thumb.png
 isFeatured: false
-date: "2021-08-06"
+date: "2022-02-19"
 ---
 
 # Array
