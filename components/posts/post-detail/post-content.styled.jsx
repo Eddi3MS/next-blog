@@ -5,7 +5,7 @@ export const PostContentStyled = styled.article`
   margin: var(--size-8) auto;
   font-size: var(--size-5);
 
-  background-color: var(--color-grey-020);
+  background-color: var(--color-grey-030);
   border-radius: 6px;
   padding: var(--size-3);
 

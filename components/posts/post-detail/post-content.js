@@ -26,7 +26,7 @@ function PostContent(props) {
           <PostImageStyled>
             <Image
               src={`/images/posts/${post.slug}/${image.properties.src}`}
-              alt={image.alt}
+              alt={image.properties.alt}
               width={600}
               height={300}
             />

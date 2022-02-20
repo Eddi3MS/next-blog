@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const PostHeaderStyled = styled.header`
   padding-bottom: var(--size-8);
-  border-bottom: 8px solid var(--color-primary-050);
+  border-bottom: 2px solid var(--color-grey-000);
   margin-block: var(--size-4);
   display: flex;
   flex-direction: column-reverse;
