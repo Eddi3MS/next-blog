@@ -145,5 +145,3 @@ Object.freeze(MATH_CONSTANTS); // lock no objeto
 
 MATH_CONSTANTS.PI = 99; // não vai funcionar.
 ```
-
-Learn more about it [here](https://academind.com).
