@@ -320,7 +320,7 @@ Semelhante \W, o \D busca por tudo que não sejam dígitos. É o atalho para [^0
 
 ```js
 let movieName = "2001: A Space Odyssey";
-let noNumRegex = /\D/g; // Change this line
+let noNumRegex = /\D/g;
 let result = movieName.match(noNumRegex);
 
 /*
