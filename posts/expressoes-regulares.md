@@ -314,7 +314,7 @@ let result = movieName.match(numRegex);
 // result = ['2','0','0','1']
 ```
 
-## Operador \Dentro
+## Operador \D
 
 Semelhante \W, o \D busca por tudo que não sejam dígitos. É o atalho para [^0-9].
 
