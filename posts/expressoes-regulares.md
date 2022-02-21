@@ -338,9 +338,9 @@ result =
 
 Verificando se um password atende as regras:
 
-- só pode conter caracteres alfanumericos
-- começa com letras
-- só pode conter números no fim da string
+- Só pode conter caracteres alfanumericos
+- Começa com letras
+- Só pode conter números no fim da string
 - tem de ter pelo menos 2 caracteres
 - Se for apenas 2 caracteres, os 2 tem de ser letras
 
