@@ -183,12 +183,12 @@ result =
 
 ## Operador +
 
-Em combinação com o operador g, faz uma busca por repetições de determinado caracter na string.
+Faz uma busca por um ou mais caracteres na string.
 
 ```js
 let difficultSpelling = "Mississippi";
 
-// busca por repetições da letra s
+// busca por um ou mais s's. Retorna os s's juntos caso estejam em sequencia
 let myRegex = /s+/g;
 let result = difficultSpelling.match(myRegex);
 
@@ -199,10 +199,10 @@ result = [ 'ss', 'ss' ];
 
 ## Operador \*
 
-Busca caracteres que se repetem 0 ou mais vezes em sequência.
+Busca caracteres que se repetem 0 ou mais vezes em sequência, juntos.
 
 ```js
-const chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
+const chewieQuote = "Aaaaaaaaaaaaaaaarrrgha!";
 
 let chewieRegex = /Aa*/;
 
@@ -359,4 +359,132 @@ let username = "JackOfAllTrades";
 let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i;
 
 let result = userCheck.test(username); // retorna true ou false
+```
+
+## Operador \s
+
+O operador \s busca por espaços vazios, além de [ \r\t\f\n\v].
+
+\r return | \t tab | \f ? | \n new line | \v ?
+
+```js
+let sample = "Whitespace is important in separating words";
+
+let countWhiteSpace = /\s/g;
+
+let result = sample.match(countWhiteSpace);
+
+//result = [ ' ', ' ', ' ', ' ', ' ' ]
+```
+
+## Operador \S
+
+O operador \S , retorna todos os caracteres que não sejam espaços vazios ou
+[ \r\t\f\n\v].
+
+```js
+let sample = "Whitespace is important in separating words";
+
+let countNonWhiteSpace = /\S/g;
+
+let result = sample.match(countNonWhiteSpace);
+
+/*result =
+[
+  'W', 'h', 'i', 't', 'e', 's', 'p',
+  'a', 'c', 'e', 'i', 's', 'i', 'm',
+  'p', 'o', 'r', 't', 'a', 'n', 't',
+  'i', 'n', 's', 'e', 'p', 'a', 'r',
+  'a', 't', 'i', 'n', 'g', 'w', 'o',
+  'r', 'd', 's'
+]
+*/
+```
+
+## Operador {}
+
+Especifica dentro dos {} o range de possibilidades de repetição de um determinado caracter, separado por vírgula.
+
+```js
+let ohStr = "Ohhh no";
+
+// checa pela repetição de h's, se houver mais de 3 e menos de 6, retorna true;
+let ohRegex = /Oh{3,6}\sno/;
+let result = ohRegex.test(ohStr);
+```
+
+Usando apenas um número dentro do {}, retornará apenas um match exato
+
+```js
+let A4 = "haaaah";
+let A3 = "haaah";
+let A100 = "h" + "a".repeat(100) + "h";
+
+let multipleHA = /ha{3}h/; // buscará pela repetição de 3 a's
+
+multipleHA.test(A4); // false, são 4 e não 3.
+multipleHA.test(A3); // true
+multipleHA.test(A100); // false, são mais de 3.
+```
+
+## Operador ?
+
+Especifica que o caracterer anterior pode ou não existir na string.
+
+```js
+let american = "color";
+let british = "colour";
+let rainbowRegex = /colou?r/; // dessa forma o u é opcional
+
+rainbowRegex.test(american); // true
+rainbowRegex.test(british); // true
+```
+
+## Operador ()
+
+Usado para passar variações para a string
+
+```js
+let testStr = "Pumpkin";
+
+//dessa forma, retornará true para penguin e punpkin
+let testRegex = /P(engu|umpk)in/;
+
+testRegex.test(testStr);
+```
+
+## Método .replace
+
+Além de encontrar strings, também podemos muda-las, trocando a ordem ou palavras
+
+```js
+let wrongText = "The sky is silver.";
+let silverRegex = /silver/;
+wrongText.replace(silverRegex, "blue"); // trocará silver por blue;
+```
+
+Também podemos acessar os trechos de texto com o $
+
+```js
+
+// (\w+) vai buscar por um trecho de texto, \s vai contabilizar o espaço
+// $2 $1 são as duas palavras, os dois trechos capturados com (\w+)
+"Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
+
+retornará Camp Code.
+
+```
+
+## Remover espaços vazios
+
+Para remover espaços vazios no inicio e fim de uma string, podemos usar a seguinte regex
+
+```js
+let hello = "   Hello, World!  ";
+
+// ^ seleciona o inicio da string
+// $ seleciona o final da string
+let wsRegex = /^\s+|\s+$/g;
+
+let result = hello.replace(wsRegex, "");
 ```
