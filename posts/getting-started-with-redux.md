@@ -36,19 +36,19 @@ Para o primeiro caso, o ideal é tratar dessas mudanças localmente, para o segu
 
 # Conceitos do Redux
 
-1- Todos os estados centralizados - no store -
+1- Todos os estados centralizados no store.
 
 2- Components se inscrevem para receber atualizações sempre que houver mudanças de estado
 
-3- Components dispacham (dispatch) ações para mudar esses estados.
+3- Components dispacham ações para mudar esses estados.
 
 4- As ações são interpretadas e realizadas pelo Reducer Function, que muta os estados no STORE.
 
 5- A mudança se reflete em todos os componentes inscritos.
 
-## exemplo de código
+## Exemplo de código
 
-Primeiro temos de criar o STORE
+Primeiro temos de criar o STORE com redux
 
 ```js
 import { createStore } from "redux";
@@ -74,7 +74,7 @@ const store = createStore(counterReducer);
 export default store;
 ```
 
-Depois, no index do projeto, prover esse store a toda aplicação
+Depois, no index do projeto, prover esse store a toda aplicação com react-redux
 
 ```js
 import ReactDOM from "react-dom";
@@ -93,7 +93,7 @@ ReactDOM.render(
 );
 ```
 
-Agora, com o store e o provider configurados, tudo que precisamos fazer é consumir os dados e utilizar as funções do store.
+Agora, com o store e o provider configurados, tudo que precisamos fazer é "se inscrever" para receber atualizações com useSelector e dispachar as ações com useDispatch.
 
 ```js
 import { useSelector, useDispatch } from "react-redux";
@@ -104,7 +104,7 @@ const Counter = () => {
   // dispatch vai ativar as funções do reducer no store
   const dispatch = useDispatch();
 
-  // useSelector seleciona um estado do store, nesse caso, o counter.
+  // useSelector seleciona um estado para "seguir" as atualizações.
   const counter = useSelector((state) => state.counter);
 
   const incrementHandler = () => {
