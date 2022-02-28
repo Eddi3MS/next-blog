@@ -272,8 +272,6 @@ const Counter = () => {
       <div>
         <input
           type="number"
-          name=""
-          id=""
           value={increaseNumber}
           onChange={(e) => setIncreaseNumber(+e.target.value)}
         />
