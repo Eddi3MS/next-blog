@@ -98,8 +98,6 @@ Depois, no index do projeto, prover esse store a toda aplicação
 
 ```js
 import ReactDOM from "react-dom";
-
-// responsavel por prover os dados do store a aplicação
 import { Provider } from "react-redux";
 
 import App from "./App";
@@ -122,10 +120,8 @@ import { useSelector, useDispatch } from "react-redux";
 import classes from "./Counter.module.css";
 
 const Counter = () => {
-  // conexão com a função Reducer
   const dispatch = useDispatch();
 
-  // inscrições
   const counter = useSelector((state) => state.counter);
   const isVisible = useSelector((state) => state.isVisible);
 
@@ -148,24 +144,7 @@ const Counter = () => {
   };
 
   return (
-    <main className={classes.counter}>
-      <h1>Redux Counter</h1>
-      {isVisible && <div className={classes.value}> {counter} </div>}
-      <div>
-        <button onClick={incrementHandler}>Increment</button>
-
-        <button onClick={decrementHandler}>Decrement</button>
-      </div>
-      <div>
-        <input
-          type="number"
-          value={increaseNumber}
-          onChange={(e) => setIncreaseNumber(+e.target.value)}
-        />
-        <button onClick={increaseHandler}>Increase</button>
-      </div>
-      <button onClick={toggleCounterHandler}>Toggle Counter</button>
-    </main>
+   // ...code here
   );
 };
 
@@ -231,11 +210,8 @@ ReactDOM.render(
 e no counter:
 
 ```js
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { counterActions } from "../store";
-
-import classes from "./Counter.module.css";
 
 const Counter = () => {
   const dispatch = useDispatch();
@@ -261,24 +237,7 @@ const Counter = () => {
   };
 
   return (
-    <main className={classes.counter}>
-      <h1>Redux Counter</h1>
-      {isVisible && <div className={classes.value}> {counter} </div>}
-      <div>
-        <button onClick={incrementHandler}>Increment</button>
-
-        <button onClick={decrementHandler}>Decrement</button>
-      </div>
-      <div>
-        <input
-          type="number"
-          value={increaseNumber}
-          onChange={(e) => setIncreaseNumber(+e.target.value)}
-        />
-        <button onClick={increaseHandler}>Increase</button>
-      </div>
-      <button onClick={toggleCounterHandler}>Toggle Counter</button>
-    </main>
+    //.. code here
   );
 };
 
