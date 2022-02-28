@@ -48,21 +48,41 @@ Para o primeiro caso, o ideal é tratar dessas mudanças localmente, para o segu
 
 ## Exemplo de código
 
-Primeiro temos de criar o STORE com redux
+Primeiro temos de criar o STORE e a função Reducer
 
 ```js
 import { createStore } from "redux";
 
-const counterReducer = (state = { counter: 0 }, action) => {
+const initialState = { counter: 0, isVisible: true };
+
+const counterReducer = (state = initialState, action) => {
   if (action.type === "increment") {
     return {
+      ...state,
       counter: state.counter + 1,
+    };
+  }
+
+  if (action.type === "increase") {
+    return {
+      ...state,
+
+      counter: state.counter + action.payload,
     };
   }
 
   if (action.type === "decrement") {
     return {
+      ...state,
+
       counter: state.counter - 1,
+    };
+  }
+
+  if (action.type === "toggle") {
+    return {
+      ...state,
+      isVisible: !state.isVisible,
     };
   }
 
@@ -74,7 +94,7 @@ const store = createStore(counterReducer);
 export default store;
 ```
 
-Depois, no index do projeto, prover esse store a toda aplicação com react-redux
+Depois, no index do projeto, prover esse store a toda aplicação
 
 ```js
 import ReactDOM from "react-dom";
@@ -93,38 +113,58 @@ ReactDOM.render(
 );
 ```
 
-Agora, com o store e o provider configurados, tudo que precisamos fazer é "se inscrever" para receber atualizações com useSelector e dispachar as ações com useDispatch.
+Agora, com o store e o provider configurados, tudo que precisamos fazer é "inscrever" para receber atualizações do Store e dispachar as ações para o Reducer.
 
 ```js
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import classes from "./Counter.module.css";
 
 const Counter = () => {
-  // dispatch vai ativar as funções do reducer no store
+  // conexão com a função Reducer
   const dispatch = useDispatch();
 
-  // useSelector seleciona um estado para "seguir" as atualizações.
+  // inscrições
   const counter = useSelector((state) => state.counter);
+  const isVisible = useSelector((state) => state.isVisible);
+
+  const [increaseNumber, setIncreaseNumber] = useState(0);
 
   const incrementHandler = () => {
-    // dispatch recebe o type, para ativar a função correta
     dispatch({ type: "increment" });
+  };
+
+  const increaseHandler = () => {
+    dispatch({ type: "increase", payload: increaseNumber });
   };
 
   const decrementHandler = () => {
     dispatch({ type: "decrement" });
   };
 
-  const toggleCounterHandler = () => {};
+  const toggleCounterHandler = () => {
+    dispatch({ type: "toggle" });
+  };
 
   return (
     <main className={classes.counter}>
       <h1>Redux Counter</h1>
-      <div className={classes.value}> {counter} </div>
+      {isVisible && <div className={classes.value}> {counter} </div>}
       <div>
         <button onClick={incrementHandler}>Increment</button>
+
         <button onClick={decrementHandler}>Decrement</button>
+      </div>
+      <div>
+        <input
+          type="number"
+          name=""
+          id=""
+          value={increaseNumber}
+          onChange={(e) => setIncreaseNumber(+e.target.value)}
+        />
+        <button onClick={increaseHandler}>Increase</button>
       </div>
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
     </main>
