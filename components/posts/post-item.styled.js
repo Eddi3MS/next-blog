@@ -12,7 +12,7 @@ export const PostItemStyled = styled.li`
     transform: translateY(-10px);
   }
   a {
-    color: var(--color-grey-020);
+    color: var(--color-grey-050);
   }
 
   .image {
@@ -33,6 +33,7 @@ export const PostItemStyled = styled.li`
   .content h3 {
     margin-top: var(--size-3);
     font-size: var(--size-6);
+    letter-spacing: 1.2px;
   }
 
   .content time {

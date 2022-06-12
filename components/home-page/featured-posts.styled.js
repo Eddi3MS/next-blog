@@ -6,7 +6,7 @@ export const FeaturedStyled = styled.section`
 
   h2 {
     font-size: var(--size-8);
-    color: var(--color-grey-500);
+    color: var(--color-grey-800);
     text-align: center;
     margin-bottom: var(--size-8);
   }

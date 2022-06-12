@@ -5,7 +5,7 @@ export const PostContentStyled = styled.article`
   margin: var(--size-8) auto;
   font-size: var(--size-5);
 
-  background-color: var(--color-grey-030);
+  background-color: var(--color-grey-050);
   border-radius: 6px;
   padding: var(--size-3);
 
@@ -17,7 +17,7 @@ export const PostContentStyled = styled.article`
   h2,
   h3,
   h4 {
-    margin-block: var(--size-4);
+    margin-block: var(--size-2);
   }
 
   @media (min-width: 768px) {
@@ -26,7 +26,7 @@ export const PostContentStyled = styled.article`
 `;
 
 export const PostImageStyled = styled.div`
-  margin: var(--size-4) auto;
+  margin: var(--size-3) auto;
   width: 100%;
   max-width: 600px;
 `;

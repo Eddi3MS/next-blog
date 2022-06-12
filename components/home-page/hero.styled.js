@@ -21,7 +21,8 @@ export const HeroStyled = styled.section`
   h1 {
     font-size: var(--size-8);
     margin: var(--size-3) 0;
-    color: var(--color-grey-030);
+    color: var(--color-grey-050);
+    letter-spacing: 2px;
   }
 
   p {
