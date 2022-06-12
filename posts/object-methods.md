@@ -86,6 +86,20 @@ let arrayObject = [
 ];
 ```
 
-Filter method will ignore key and access all the values: ([_,value])
+Filter method will ignore key and access all the values ([_,value]), returning only the arrays which have a value !== than empty:
 
-And Object.fromEntries will turn the array back into an object, now without the empty entries.
+```js
+let arrayObject = [
+  ["name", "Edson"],
+  ["age", "32"],
+];
+```
+
+And Object.fromEntries will turn the array back into an object.
+
+```js
+const object = {
+  name: "Edson",
+  age: "32",
+};
+```
