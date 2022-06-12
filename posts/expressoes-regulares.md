@@ -3,7 +3,7 @@ title: "Expressões Regulares?"
 date: "2022-02-21"
 image: regular-expressions.jpg
 excerpt: "Expressões Regulares são padrões de caracteres que associam sequências de caracteres no texto."
-isFeatured: true
+isFeatured: false
 ---
 
 # Expressões Regulares

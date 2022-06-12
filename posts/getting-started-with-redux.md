@@ -3,7 +3,7 @@ title: "O que é o Redux?"
 date: "2022-02-18"
 image: redux.png
 excerpt: Redux é uma lib responsável por gerir os estados globais da aplicação, estados que afetam todos ou vários componentes na árvore.
-isFeatured: true
+isFeatured: false
 ---
 
 Você com certeza, já precisou "levantar um estado" para o arquivo \_app, ou outro 'parent component' qualquer, só para, de lá, distribuir as props para os componentes que realmente precisavam delas.

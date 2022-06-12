@@ -14,8 +14,7 @@ function Hero() {
       </div>
       <h1>Bem-vindos!!</h1>
       <p>
-        Eu me chamo <span>Edson Marcelo</span>, sou desenvolvedor front-end e
-        escrevo, aqui, informações relacionadas.
+        Eu me chamo <span>Edson Marcelo</span>,e sou desenvolvedor front-end.
       </p>
     </HeroStyled>
   );

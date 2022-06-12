@@ -1,5 +1,5 @@
 import PostGrid from "../posts/posts-grid";
-import { FeaturedStyled } from "./featured-posts.syled";
+import { FeaturedStyled } from "./featured-posts.styled";
 
 function FeaturedPosts(props) {
   return (

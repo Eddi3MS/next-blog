@@ -3,7 +3,7 @@ title: "Always check for booleans in JSX!"
 date: "2022-04-14"
 image: booleans.jpg
 excerpt: "Always pay careful attention to what you are checking on the left side of a logical statement - everywhere - but especially in JSX.."
-isFeatured: true
+isFeatured: false
 ---
 
 # React - Clean Code
