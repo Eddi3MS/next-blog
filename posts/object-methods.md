@@ -6,7 +6,46 @@ excerpt: "Some usecases for object manipulation.."
 isFeatured: true
 ---
 
+# Methods
+
+## Object.keys & Object.values
+
+The Object.keys() returns an array of a given object's
+own enumerable property names
+
+The Object.values() returns an array of a given object's
+own enumerable property values
+
+```js
+const person = {
+  name: "Edson",
+  age: 32,
+  nationality: "Brazilian",
+};
+
+const keys = Object.keys(person);
+// keys = ['name', 'age', 'nationality']
+const values = Object.values(person);
+// values = ['Edson', 32, 'Brazilian']
+```
+
 # Object use cases
+
+## Create a dinamic property to Object with []
+
+```js
+const person = {};
+const keys = ["name", "age", "nationality"];
+const values = ["Edson", 32, "Brazilian"];
+
+keys.forEach((key, index) => (person[key] = values[index]));
+
+//  person = {
+//     "name": "Edson",
+//     "age": 32,
+//     "nationality": "Brazilian"
+//  }
+```
 
 ## Filter Object and remove empty values
 

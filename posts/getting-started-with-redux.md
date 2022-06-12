@@ -26,27 +26,31 @@ O componente muta, envia a informação apenas para o Store - Redux -, e de lá 
 
 Existem 3 tipos de estados:
 
-- Local State : onChange no input, show more de um details.. são coisas que podem ser geridas localmente.
+- Local State: são coisas que podem ser geridas localmente. Ex: onChange no input, show more de um details..
 
-- Cross-Component State: close/open Modal overlay.. são mudanças que afetam mais de um componente e precisam passar props entre eles.
+- Cross-Component State: são mudanças que afetam mais de um componente e precisam passar props entre eles. Ex: close/open Modal overlay..
 
-- App-Wide State: autenticação de usuário.. são mudanças que afetam todos ou quase todos componentes, e demandariam um prop drilling bem complexo..
+- App-Wide State: são mudanças que afetam todos ou quase todos componentes, e demandariam um prop drilling bem complexo. Ex: autenticação de usuário..
 
-Para o primeiro caso, o ideal é tratar dessas mudanças localmente, para o segundo, podemos escolher entre a Context API ou Redux, já no terceiro, definitivamente devemos usar Redux, por ele ser mais performático ( context api não foi feita para lidar com high frequency updates ) e menos complexo.
+1. Para o primeiro caso, o ideal é usar react-hooks.
+2. Para o segundo, podemos escolher entre a Context API ou Redux.
+3. E já no terceiro, definitivamente devemos usar Redux, por ele ser mais performático e menos complexo.
+
+**A Context-API não foi feita para lidar com high frequency updates.**
 
 # Conceitos do Redux
 
-1- Todos os estados centralizados no store.
+1- Todos os estados centralizados.
 
-2- Components se inscrevem para receber atualizações sempre que houver mudanças de estado
+2- Components se inscrevem para receber atualizações sempre que houver mudanças no estado
 
-3- Components dispacham ações para mudar esses estados.
+3- Components dispacham ações para mudar esse estado.
 
-4- As ações são interpretadas e realizadas pelo Reducer Function, que muta os estados no STORE.
+4- As ações são interpretadas e executadas pelo Reducer, que atualiza o estado no STORE.
 
 5- A mudança se reflete em todos os componentes inscritos.
 
-## Exemplo de código
+## Exemplo de código com Redux puro
 
 Primeiro temos de criar o STORE e a função Reducer
 
@@ -144,14 +148,14 @@ const Counter = () => {
   };
 
   return (
-   // ...code here
+   // jsx here
   );
 };
 
 export default Counter;
 ```
 
-## Agora veja o mesmo código com @reduxjs/toolkit
+## Agora veja o mesmo código usando @reduxjs/toolkit
 
 Store -> Slice
 
@@ -237,9 +241,12 @@ const Counter = () => {
   };
 
   return (
-    //.. code here
+    //.. jsx here
   );
 };
 
 export default Counter;
+
 ```
+
+Redux/Toolkit é um grande facilitador, ele abstrai o controle do estado, mantendo sua imutabilidade, enquando nós apenas atualizamos o que precisa realmente ser atualizado.
