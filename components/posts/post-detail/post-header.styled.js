@@ -12,7 +12,7 @@ export const PostHeaderStyled = styled.header`
 
   h1 {
     font-size: var(--size-8);
-    color: var(--color-grey-500);
+    color: var(--color-grey-900);
     margin: 0;
     line-height: initial;
     text-align: center;
@@ -30,7 +30,7 @@ export const PostHeaderStyled = styled.header`
     align-items: flex-end;
 
     h1 {
-      font-size: var(--size-16);
+      font-size: var(--size-20);
       text-align: left;
     }
   }

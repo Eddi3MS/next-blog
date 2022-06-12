@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContactStyle = styled.section`
-  margin: var(--size-16) auto;
+  margin: var(--size-8) auto;
   border-radius: 6px;
   background-color: var(--color-grey-050);
   width: min(90%, 50rem);

@@ -6,7 +6,7 @@ excerpt: "Some usecases for object manipulation.."
 isFeatured: true
 ---
 
-# Methods
+# Methods:
 
 ## Object.keys & Object.values
 
